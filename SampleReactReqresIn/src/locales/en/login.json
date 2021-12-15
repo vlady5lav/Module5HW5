@@ -1,0 +1,8 @@
+{
+    "placeholder": {
+      "email": "Enter email",
+      "password": "Password"
+    },
+    "submit": "Submit",
+    "success": "Success! Token is: {{token}}"
+}
