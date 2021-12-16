@@ -1,7 +1,7 @@
 {
-    "tabs": {
-      "user": "User",
-      "users": "Users list",
-      "login": "Login"
-    }
+  "tabs": {
+    "user": "User",
+    "users": "Users list",
+    "login": "Login"
+  }
 }

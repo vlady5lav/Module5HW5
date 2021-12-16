@@ -1,4 +1,4 @@
 export const TestUser = {
-    email: 'eve.holt@reqres.in',
-    password: 'cityslicka'
-}
+  email: 'eve.holt@reqres.in',
+  password: 'cityslicka',
+};

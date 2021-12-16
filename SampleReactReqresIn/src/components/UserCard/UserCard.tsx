@@ -1,20 +1,20 @@
-import React from 'react'
-import { Card } from 'react-bootstrap'
+import React from 'react';
+import { Card } from 'react-bootstrap';
 
 interface Props {
   user: {
-    email: string,
-    first_name: string,
-    last_name: string,
-    avatar: string
-  } | null
+    email: string;
+    first_name: string;
+    last_name: string;
+    avatar: string;
+  } | null;
 }
 
 const UserCard = (props: Props) => {
   if (!props.user) {
-    return null
+    return null;
   }
-  const { email, first_name, last_name, avatar } = props.user
+  const { email, first_name, last_name, avatar } = props.user;
 
   return (
     <Card>
@@ -26,7 +26,7 @@ const UserCard = (props: Props) => {
         </Card.Text>
       </Card.Body>
     </Card>
-  )
-}
+  );
+};
 
-export default UserCard
+export default UserCard;

@@ -10,18 +10,17 @@ export const resources = {
     app,
     homePage,
     login,
-    user
+    user,
   },
 } as const;
 
 i18n.use(initReactI18next).init({
   lng: 'en',
-  ns: ['app','homePage', 'login', 'user'],
+  ns: ['app', 'homePage', 'login', 'user'],
   interpolation: {
     escapeValue: false, // not needed for react as it escapes by default
   },
   resources,
 });
-
 
 export default i18n;
