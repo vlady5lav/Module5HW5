@@ -1,0 +1,41 @@
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+.avatar {
+  width: max-content;
+  height: max-content;
+  margin: 5px 5px 5px 5px;
+}
+
+.card-body {
+  margin: 10px 10px 10px 10px;
+  height: 250px;
+  text-align: center;
+}
+
+.card-header {
+  text-align: center;
+}
+
+.card-footer {
+  text-align: center;
+}
+
+.container {
+  max-width: 1450px;
+}
+
+h5 {
+  margin: 5px 5px 5px 5px;
+}
+
+p {
+  margin: 5px 5px 5px 5px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.nav-tabs {
+  justify-content: center;
+}

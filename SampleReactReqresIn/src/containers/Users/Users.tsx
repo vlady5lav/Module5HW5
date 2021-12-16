@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react'
-import UserCard from '../../components/UserCard'
-import { Col, Container, Row, Spinner } from 'react-bootstrap'
-import Pagination from '../../components/Pagination'
-import { observer } from 'mobx-react'
-import { useInjection } from '../../ioc/ioc.react'
-import UsersStore from '../../stores/UsersStore'
-import ownTypes from '../../ioc/ownTypes'
+import React, { useEffect } from 'react';
+import { Col, Container, Row, Spinner } from 'react-bootstrap';
+import { observer } from 'mobx-react';
+import { useInjection } from '../../ioc/ioc.react';
+import ownTypes from '../../ioc/ownTypes';
+import Pagination from '../../components/Pagination';
+import UserCard from '../../components/UserCard';
+import UsersStore from '../../stores/UsersStore';
 
 const Users = observer(() => {
   const store = useInjection<UsersStore>(ownTypes.usersStore);
@@ -13,9 +13,9 @@ const Users = observer(() => {
   useEffect(() => {
     const getUser = async () => {
       await store.init();
-    }
-    getUser()
-  }, [store])
+    };
+    getUser();
+  }, [store]);
 
   return (
     <Container>
@@ -31,11 +31,16 @@ const Users = observer(() => {
             ))}
           </>
         )}
-
       </Row>
-      <Pagination total={store.totalPages} active={store.currentPage} onChange={(val) => { store.changePage(val) }}/>
+      <Pagination
+        total={store.totalPages}
+        active={store.currentPage}
+        onChange={(val) => {
+          store.changePage(val);
+        }}
+      />
     </Container>
-  )
+  );
 });
 
-export default Users
+export default Users;

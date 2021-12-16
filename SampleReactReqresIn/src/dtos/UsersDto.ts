@@ -1,6 +1,9 @@
-import { UserDto } from "./UserDto";
+import { UserDto } from './UserDto';
 
 export interface UsersDto {
-    data: UserDto[],
-    total_pages: number
-  }
+  data: UserDto[];
+  page: number;
+  per_page: number;
+  total: number;
+  total_pages: number;
+}

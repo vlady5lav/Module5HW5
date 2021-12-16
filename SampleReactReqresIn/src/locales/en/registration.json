@@ -1,0 +1,32 @@
+{
+  "placeholder": {
+    "email": "Enter Email",
+    "emailConfirmation": "Confirm Email",
+    "password": "Enter Password",
+    "passwordConfirmation": "Confirm Password",
+    "firstName": "Enter First Name",
+    "lastName": "Enter Last Name",
+    "gender": "Choose your gender"
+  },
+
+  "genderType": {
+    "male": "Male",
+    "female": "Female"
+  },
+
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "gender": "Gender",
+
+  "rememberMe": "Remember me",
+
+  "emailAddress": "Email Address",
+  "emailAddressConfirmation": "Email Address confirmation",
+  "password": "Password",
+  "passwordConfirmation": "Password confirmation",
+
+  "submit": "Submit",
+  "success": "Success! Token is: {{token}}, ID is: {{id}}!",
+  "emailError": "Entered emails are not equal!",
+  "passwordError": "Entered passwords are not equal!"
+}

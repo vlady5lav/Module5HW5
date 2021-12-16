@@ -1,0 +1,7 @@
+{
+  "placeholder": "Enter resource id here",
+  "submit": "Submit",
+  "error": {
+    "input": "You must input only digits!"
+  }
+}

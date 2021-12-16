@@ -1,7 +1,10 @@
 {
-    "tabs": {
-      "user": "User",
-      "users": "Users list",
-      "login": "Login"
-    }
+  "tabs": {
+    "login": "Login",
+    "user": "User",
+    "users": "Users List",
+    "resource": "Resource",
+    "resources": "Resources List",
+    "registration": "Registration"
+  }
 }

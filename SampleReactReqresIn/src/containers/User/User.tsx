@@ -1,11 +1,13 @@
-import React from 'react'
-import { Button, Col, Container, FormControl, InputGroup, Row, Spinner } from 'react-bootstrap'
-import ownTypes from '../../ioc/ownTypes'
-import { observer } from 'mobx-react'
-import { useInjection } from '../../ioc/ioc.react'
-import UserStore from '../../stores/UserStore'
-import UserCard from '../../components/UserCard'
+import React from 'react';
+import { Col, Container, FormControl, InputGroup, Row } from 'react-bootstrap';
+import { observer } from 'mobx-react';
 import { useTranslation } from 'react-i18next';
+import { useInjection } from '../../ioc/ioc.react';
+import ownTypes from '../../ioc/ownTypes';
+import ButtonSpinner from '../../components/ButtonSpinner';
+import ErrorMessage from '../../components/ErrorMessage';
+import UserCard from '../../components/UserCard';
+import UserStore from '../../stores/UserStore';
 
 const User = observer(() => {
   const store = useInjection<UserStore>(ownTypes.userStore);
@@ -19,31 +21,27 @@ const User = observer(() => {
             <FormControl
               type="number"
               value={store.queryString}
-              onChange={(ev)=> {store.changeQueryString(ev.target.value)}}
+              onChange={(ev) => {
+                store.changeQueryString(ev.target.value);
+              }}
               isInvalid={!!store.error}
               placeholder={t('placeholder')}
             />
-            <Button
-              disabled={!store.queryString}
+            <ButtonSpinner
+              isLoading={store.isLoading}
+              queryString={store.queryString}
               variant="primary"
               onClick={store.search}
               type="button"
-            >
-              {store.isLoading ? (
-                <Spinner animation="border" size="sm" />
-              ) : (
-                `${t('submit')}`
-              )}
-            </Button>
+              text={t('submit')}
+            />
           </InputGroup>
-          {!!store.error && (
-            <p style={{ color: 'red', fontSize: 14 }}>{store.error}</p>
-          )}
+          <ErrorMessage error={store.error} />
           <UserCard user={store.user} />
         </Col>
       </Row>
     </Container>
-  )
+  );
 });
 
-export default User
+export default User;

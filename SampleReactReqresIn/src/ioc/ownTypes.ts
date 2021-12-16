@@ -1,10 +1,14 @@
 export default {
-    httpService: Symbol("httpService"),
-    userService: Symbol("userService"),
-    authenticationService: Symbol("authenticationService"),
-    homePageStore: Symbol("homePageStore"),
-    userStore: Symbol("userStore"),
-    usersStore: Symbol("usersStore"),
-    loginStore: Symbol("loginStore")
+  authenticationService: Symbol('authenticationService'),
+  homePageStore: Symbol('homePageStore'),
+  httpService: Symbol('httpService'),
+  loginStore: Symbol('loginStore'),
+  registrationService: Symbol('registrationService'),
+  registrationStore: Symbol('registrationStore'),
+  resourceService: Symbol('resourceService'),
+  resourcesStore: Symbol('resourcesStore'),
+  resourceStore: Symbol('resourceStore'),
+  userService: Symbol('userService'),
+  usersStore: Symbol('usersStore'),
+  userStore: Symbol('userStore'),
 };
-
