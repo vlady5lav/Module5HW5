@@ -1,17 +1,20 @@
 import { inject, injectable } from 'inversify';
 import { action, makeObservable, observable, runInAction } from 'mobx';
 import ownTypes from '../ioc/ownTypes';
-import type { User } from '../models/User';
-import type UserService from '../services/UserService';
+import type { Resource } from '../models/Resource';
+import type ResourceService from '../services/ResourceService';
 
 @injectable()
-export default class UsersStore {
-  @observable users: User[] = [];
+export default class ResourcesStore {
+  @observable resources: Resource[] = [];
   @observable isLoading = false;
   @observable totalPages = 0;
   @observable currentPage = 1;
 
-  constructor(@inject(ownTypes.userService) private readonly userService: UserService) {
+  constructor(
+    @inject(ownTypes.resourceService)
+    private readonly resourceService: ResourceService
+  ) {
     makeObservable(this);
   }
 
@@ -29,10 +32,9 @@ export default class UsersStore {
   private getByPage = async (page: number) => {
     try {
       this.isLoading = true;
-      const result = await this.userService.getByPage(page);
-
+      const result = await this.resourceService.getByPage(page);
       runInAction(() => {
-        this.users = result.data;
+        this.resources = result.data;
         this.totalPages = result.total_pages;
       });
     } catch (e) {
