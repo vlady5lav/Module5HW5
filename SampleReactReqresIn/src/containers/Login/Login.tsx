@@ -49,6 +49,10 @@ const Login = observer(() => {
               <Form.Check type="checkbox" label={t('rememberMe')} />
             </Form.Group>
 
+            <Form.Group className="mb-3" controlId="formBasicInvisible">
+              <Form.Check type="checkbox" label={t('invisible')} />
+            </Form.Group>
+
             <ErrorMessage error={store.error} />
 
             <ButtonSpinner queryString="false" isLoading={store.isLoading} variant="primary" type="submit" text={t('submit')} />

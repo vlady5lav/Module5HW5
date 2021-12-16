@@ -7,6 +7,7 @@
   "emailAddress": "Email Address",
   "password": "Password",
   "rememberMe": "Remember me",
+  "invisible": "Invisible",
 
   "submit": "Submit",
   "success": "Success! Token is: {{token}}!"

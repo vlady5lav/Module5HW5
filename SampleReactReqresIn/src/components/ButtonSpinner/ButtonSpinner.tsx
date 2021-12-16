@@ -4,7 +4,7 @@ import { Button, Spinner } from 'react-bootstrap';
 interface Props {
   isLoading: boolean;
   text?: string;
-  queryString?: string;
+  queryString?: string | boolean;
   type?: 'button' | 'submit' | 'reset' | undefined;
   variant?: string;
   onClick?: MouseEventHandler;

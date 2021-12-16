@@ -6,7 +6,9 @@
     "passwordConfirmation": "Confirm Password",
     "firstName": "Enter First Name",
     "lastName": "Enter Last Name",
-    "gender": "Choose your gender"
+    "gender": "Choose your gender",
+    "username": "Username",
+    "age": "Choose your age"
   },
 
   "genderType": {
@@ -17,8 +19,11 @@
   "firstName": "First Name",
   "lastName": "Last Name",
   "gender": "Gender",
+  "age": "Age",
+  "username": "Username",
 
-  "rememberMe": "Remember me",
+  "agreeTerms": "Agree to terms and conditions",
+  "agreeTermsFeedback": "You must agree before submitting!",
 
   "emailAddress": "Email Address",
   "emailAddressConfirmation": "Email Address confirmation",

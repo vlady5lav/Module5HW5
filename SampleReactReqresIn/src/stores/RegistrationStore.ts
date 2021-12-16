@@ -3,7 +3,8 @@ import { action, makeObservable, observable, runInAction } from 'mobx';
 import ownTypes from '../ioc/ownTypes';
 import type RegistrationService from '../services/RegistrationService';
 
-enum Gender {
+export enum Gender {
+  Undefined,
   Male,
   Female,
 }
@@ -16,7 +17,9 @@ export default class RegistrationStore {
   @observable passwordConfirmation = '';
   @observable firstName = '';
   @observable lastName = '';
+  @observable age = -1;
   @observable gender = '';
+  @observable username = '';
   @observable isLoading = false;
   @observable error = '';
   @observable token = '';
@@ -80,6 +83,16 @@ export default class RegistrationStore {
   @action
   public changeLastName = (lastName: string): void => {
     this.lastName = lastName;
+  };
+
+  @action
+  public changeUsername = (username: string) => {
+    this.username = username;
+  };
+
+  @action
+  public changeAge = (age: number) => {
+    this.age = age;
   };
 
   @action
