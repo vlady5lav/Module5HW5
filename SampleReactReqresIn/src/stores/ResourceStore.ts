@@ -22,15 +22,19 @@ export default class ResourceStore {
   @action
   public search = async () => {
     this.error = '';
+
     try {
       this.isLoading = true;
       const id = Number(this.queryString);
+
       if (id === NaN) {
         this.queryString = '';
         this.error = i18n.t('resource:error.input');
         return;
       }
+
       const result = await this.resourceService.getById(id);
+
       runInAction(() => {
         this.resource = {
           ...result,
@@ -42,6 +46,7 @@ export default class ResourceStore {
         this.error = e.message;
       }
     }
+
     runInAction(() => {
       this.isLoading = false;
     });

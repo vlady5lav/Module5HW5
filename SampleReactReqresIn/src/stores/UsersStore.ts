@@ -30,6 +30,7 @@ export default class UsersStore {
     try {
       this.isLoading = true;
       const result = await this.userService.getByPage(page);
+
       runInAction(() => {
         this.users = result.data;
         this.totalPages = result.total_pages;
@@ -39,6 +40,7 @@ export default class UsersStore {
         console.error(e.message);
       }
     }
+
     runInAction(() => {
       this.isLoading = false;
     });

@@ -15,6 +15,7 @@ const UserCard = (props: Props) => {
   if (!props.user) {
     return null;
   }
+
   const { id, email, first_name, last_name, avatar } = props.user;
 
   return (

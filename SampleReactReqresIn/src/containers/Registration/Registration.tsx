@@ -31,6 +31,7 @@ const Registration = observer(() => {
                 }}
               />
             </Form.Group>
+
             <Form.Group className="mb-3" controlId="formBasicLastName">
               <Form.Label>{t('lastName')}</Form.Label>
               <Form.Control
@@ -41,6 +42,7 @@ const Registration = observer(() => {
                 }}
               />
             </Form.Group>
+
             <Form.Group className="mb-3" controlId="formBasicGender">
               <Form.Label>{t('gender')}</Form.Label>
               <Form.Select defaultValue={t('placeholder.gender').toString()}>
@@ -49,6 +51,7 @@ const Registration = observer(() => {
                 <option>{t('genderType.female')}</option>
               </Form.Select>
             </Form.Group>
+
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>{t('emailAddress')}</Form.Label>
               <Form.Control
@@ -61,6 +64,7 @@ const Registration = observer(() => {
                 }}
               />
             </Form.Group>
+
             <Form.Group className="mb-3" controlId="formBasicEmailConfirmation">
               <Form.Label>{t('emailAddressConfirmation')}</Form.Label>
               <Form.Control
@@ -73,6 +77,7 @@ const Registration = observer(() => {
                 }}
               />
             </Form.Group>
+
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>{t('password')}</Form.Label>
               <Form.Control
@@ -84,6 +89,7 @@ const Registration = observer(() => {
                 }}
               />
             </Form.Group>
+
             <Form.Group className="mb-3" controlId="formBasicPasswordConfirmation">
               <Form.Label>{t('passwordConfirmation')}</Form.Label>
               <Form.Control
@@ -95,8 +101,11 @@ const Registration = observer(() => {
                 }}
               />
             </Form.Group>
+
             <ErrorMessage error={store.error} />
+
             <ButtonSpinner queryString="false" isLoading={store.isLoading} variant="primary" type="submit" text={t('submit')} />
+
             {!!store.token && (
               <p className="mt-3 mb-3" style={{ color: 'green', fontSize: 14, fontWeight: 700 }}>
                 {t('success', { token: store.token, id: store.id })}

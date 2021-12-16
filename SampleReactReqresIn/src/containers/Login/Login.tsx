@@ -32,6 +32,7 @@ const Login = observer(() => {
                 }}
               />
             </Form.Group>
+
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>{t('password')}</Form.Label>
               <Form.Control
@@ -43,11 +44,15 @@ const Login = observer(() => {
                 }}
               />
             </Form.Group>
+
             <Form.Group className="mb-3" controlId="formBasicRememberMe">
               <Form.Check type="checkbox" label={t('rememberMe')} />
             </Form.Group>
+
             <ErrorMessage error={store.error} />
+
             <ButtonSpinner queryString="false" isLoading={store.isLoading} variant="primary" type="submit" text={t('submit')} />
+
             {!!store.token && (
               <p className="mt-3 mb-3" style={{ color: 'green', fontSize: 14, fontWeight: 700 }}>
                 {t('success', { token: store.token })}

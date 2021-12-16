@@ -19,15 +19,19 @@ export default class UserStore {
   @action
   public search = async () => {
     this.error = '';
+
     try {
       this.isLoading = true;
       const id = Number(this.queryString);
+
       if (id === NaN) {
         this.queryString = '';
         this.error = i18n.t('user:error.input');
         return;
       }
+
       const result = await this.userService.getById(id);
+
       runInAction(() => {
         this.user = {
           ...result,
@@ -39,6 +43,7 @@ export default class UserStore {
         this.error = e.message;
       }
     }
+
     runInAction(() => {
       this.isLoading = false;
     });

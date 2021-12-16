@@ -34,6 +34,7 @@ export default class RegistrationStore {
     this.token = '';
     this.id = -1;
     this.error = '';
+
     try {
       this.isLoading = true;
 

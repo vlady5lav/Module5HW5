@@ -22,6 +22,7 @@ export default class LoginStore {
   public login = async () => {
     this.token = '';
     this.error = '';
+
     try {
       this.isLoading = true;
       const result = await this.authenticationService.login(this.email, this.password);
@@ -33,6 +34,7 @@ export default class LoginStore {
         this.error = e.message;
       }
     }
+
     runInAction(() => {
       this.isLoading = false;
     });

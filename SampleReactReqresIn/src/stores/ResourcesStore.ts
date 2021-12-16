@@ -42,6 +42,7 @@ export default class ResourcesStore {
         console.error(e.message);
       }
     }
+
     runInAction(() => {
       this.isLoading = false;
     });
