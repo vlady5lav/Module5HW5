@@ -6,12 +6,12 @@ import { useInjection } from '../../ioc/ioc.react';
 import ownTypes from '../../ioc/ownTypes';
 import ButtonSpinner from '../../components/ButtonSpinner';
 import ErrorMessage from '../../components/ErrorMessage';
-import UserCard from '../../components/UserCard';
-import UserStore from '../../stores/UserStore';
+import ResourceCard from '../../components/ResourceCard';
+import ResourceStore from '../../stores/ResourceStore';
 
-const User = observer(() => {
-  const store = useInjection<UserStore>(ownTypes.userStore);
-  const { t } = useTranslation(['user']);
+const Resource = observer(() => {
+  const store = useInjection<ResourceStore>(ownTypes.resourceStore);
+  const { t } = useTranslation(['resource']);
 
   return (
     <Container>
@@ -37,11 +37,11 @@ const User = observer(() => {
             />
           </InputGroup>
           <ErrorMessage error={store.error} />
-          <UserCard user={store.user} />
+          <ResourceCard resource={store.resource} />
         </Col>
       </Row>
     </Container>
   );
 });
 
-export default User;
+export default Resource;

@@ -1,10 +1,12 @@
-import { observer } from 'mobx-react';
 import React from 'react';
-import { Button, Col, Container, Form, Row, Spinner } from 'react-bootstrap';
+import { Col, Container, Form, Row } from 'react-bootstrap';
+import { observer } from 'mobx-react';
+import { useTranslation } from 'react-i18next';
 import { useInjection } from '../../ioc/ioc.react';
 import ownTypes from '../../ioc/ownTypes';
+import ButtonSpinner from '../../components/ButtonSpinner';
+import ErrorMessage from '../../components/ErrorMessage';
 import LoginStore from '../../stores/LoginStore';
-import { useTranslation } from 'react-i18next';
 
 const Login = observer(() => {
   const store = useInjection<LoginStore>(ownTypes.loginStore);
@@ -20,7 +22,7 @@ const Login = observer(() => {
               store.login();
             }}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
+              <Form.Label>{t('emailAddress')}</Form.Label>
               <Form.Control
                 type="email"
                 placeholder={t('placeholder.email')}
@@ -30,8 +32,9 @@ const Login = observer(() => {
                 }}
               />
             </Form.Group>
+
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
+              <Form.Label>{t('password')}</Form.Label>
               <Form.Control
                 type="password"
                 placeholder={t('placeholder.password')}
@@ -41,10 +44,19 @@ const Login = observer(() => {
                 }}
               />
             </Form.Group>
-            {!!store.error && <p style={{ color: 'red', fontSize: 14 }}>{store.error}</p>}
-            <Button variant="primary" type="submit">
-              {store.isLoading ? <Spinner animation="border" size="sm" /> : `${t('submit')}`}
-            </Button>
+
+            <Form.Group className="mb-3" controlId="formBasicRememberMe">
+              <Form.Check type="checkbox" label={t('rememberMe')} />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicInvisible">
+              <Form.Check type="checkbox" label={t('invisible')} />
+            </Form.Group>
+
+            <ErrorMessage error={store.error} />
+
+            <ButtonSpinner queryString="false" isLoading={store.isLoading} variant="primary" type="submit" text={t('submit')} />
+
             {!!store.token && (
               <p className="mt-3 mb-3" style={{ color: 'green', fontSize: 14, fontWeight: 700 }}>
                 {t('success', { token: store.token })}

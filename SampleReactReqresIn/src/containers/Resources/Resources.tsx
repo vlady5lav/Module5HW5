@@ -4,17 +4,17 @@ import { observer } from 'mobx-react';
 import { useInjection } from '../../ioc/ioc.react';
 import ownTypes from '../../ioc/ownTypes';
 import Pagination from '../../components/Pagination';
-import UserCard from '../../components/UserCard';
-import UsersStore from '../../stores/UsersStore';
+import ResourceCard from '../../components/ResourceCard';
+import ResourcesStore from '../../stores/ResourcesStore';
 
-const Users = observer(() => {
-  const store = useInjection<UsersStore>(ownTypes.usersStore);
+const Resources = observer(() => {
+  const store = useInjection<ResourcesStore>(ownTypes.resourcesStore);
 
   useEffect(() => {
-    const getUser = async () => {
+    const getResource = async () => {
       await store.init();
     };
-    getUser();
+    getResource();
   }, [store]);
 
   return (
@@ -24,9 +24,9 @@ const Users = observer(() => {
           <Spinner animation="border" />
         ) : (
           <>
-            {store.users?.map((user, key) => (
+            {store.resources?.map((resource, key) => (
               <Col key={key} sm={6} md={4} lg={3} xl={2} className="mb-2 mt-2">
-                <UserCard user={user} />
+                <ResourceCard resource={resource} />
               </Col>
             ))}
           </>
@@ -43,4 +43,4 @@ const Users = observer(() => {
   );
 });
 
-export default Users;
+export default Resources;

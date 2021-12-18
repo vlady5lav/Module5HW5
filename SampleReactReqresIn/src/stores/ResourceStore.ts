@@ -1,18 +1,21 @@
 import { inject, injectable } from 'inversify';
 import { action, makeObservable, observable, runInAction } from 'mobx';
 import ownTypes from '../ioc/ownTypes';
-import type { User } from '../models/User';
-import type UserService from '../services/UserService';
+import type { Resource } from '../models/Resource';
+import type ResourceService from '../services/ResourceService';
 import i18n from '../locales/config';
 
 @injectable()
-export default class UserStore {
-  @observable user: User | null = null;
+export default class ResourceStore {
+  @observable resource: Resource | null = null;
   @observable isLoading = false;
   @observable error = '';
   @observable queryString = '';
 
-  constructor(@inject(ownTypes.userService) private readonly userService: UserService) {
+  constructor(
+    @inject(ownTypes.resourceService)
+    private readonly resourceService: ResourceService
+  ) {
     makeObservable(this);
   }
 
@@ -26,14 +29,14 @@ export default class UserStore {
 
       if (id === NaN) {
         this.queryString = '';
-        this.error = i18n.t('user:error.input');
+        this.error = i18n.t('resource:error.input');
         return;
       }
 
-      const result = await this.userService.getById(id);
+      const result = await this.resourceService.getById(id);
 
       runInAction(() => {
-        this.user = {
+        this.resource = {
           ...result,
         };
       });
